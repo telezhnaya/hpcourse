@@ -1,7 +1,8 @@
 package util;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class SynchronizedMap<K, V> {
     private final HashMap<K, V> map;
@@ -27,7 +28,8 @@ public class SynchronizedMap<K, V> {
     public List<V> getValues() {
         ArrayList<V> res = new ArrayList<>();
         synchronized (map) {
-            res.addAll(map.keySet().stream().map(map::get).collect(Collectors.toList()));
+            //res.addAll(map.keySet().stream().map(map::get).collect(Collectors.toList()));
+            res.addAll(map.values()); // не ищу простых путей!
         }
         return res;
     }

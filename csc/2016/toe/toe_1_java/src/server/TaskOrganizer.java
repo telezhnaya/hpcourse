@@ -97,15 +97,15 @@ public class TaskOrganizer {
             if (task == null) {
                 builder.setStatus(Protocol.Status.ERROR);
             } else {
-                while (!task.isDone()) {
-                    synchronized (task) {
-                        try {
-                            task.wait();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
+//                while (!task.isDone()) {
+//                    synchronized (task) {
+//                        try {
+//                            task.wait();
+//                        } catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                }
                 builder.setValue(task.getResult());
                 builder.setStatus(Protocol.Status.OK);
             }
